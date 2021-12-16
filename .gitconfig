@@ -1,0 +1,16 @@
+[https]
+	proxy = https://127.0.0.1:7890
+[http]
+	proxy = http://127.0.0.1:7890
+[user]
+	email = kitechin@qq.com
+	name = kitechin
+[alias]
+	co = commit
+	br = branch
+	re = reset
+	rv = revert
+	st = status
+	sw = switch
+	ch = checkout
+
