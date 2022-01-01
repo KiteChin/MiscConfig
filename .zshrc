@@ -10,8 +10,8 @@ export ZSH="/home/kitechin/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( user dir_writable dir vcs status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( root_indicator background_jobs  )
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode date history vcs status newline dir_writable dir )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs  )
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,14 +74,25 @@ POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+	sudo
+	history
 	git
+	z
+	safe-paste
+	git-open
+	extract
+	rand-quote
+	gitignore
+	vi-mode
+	colored-man-pages
+	zsh-autosuggestions
+
 	bundler
 	dotenv
 	macos
 	rake
 	rbenv
 	ruby
-	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,30 +125,42 @@ source $ZSH/oh-my-zsh.sh
 #
 
 
-# Less Colors for Man Pages
-export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\e[0m'           # end mode
-export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\e[0m'           # end underline
-export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
+## Less Colors for Man Pages
+#export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
+#export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
+#export LESS_TERMCAP_me=$'\e[0m'           # end mode
+#export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+#export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
+#export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+#export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
+
+#swape caps and esc
+setxkbmap -option caps:swapescape
 
 #some alias
+alias ll="ls -al"
 alias vim="nvim"
 alias ra="ranger"
 alias s="screenfetch"
 alias cl="clear"
+#alias sudo="sudo -E"
 
 #My Environment
 export EDITOR=$(which nvim)
 export SYSTEMD_EDITOR=$(which nvim)
 export http_proxy='127.0.0.1:7890'
 export https_proxy='127.0.0.1:7890'
+export TERM=xterm-256color
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
 
 #FZF
+export FZF_COMPLETION_TRIGGER='**'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border '
 export FZF_DEFAULT_COMMAND="find ."
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-
+export FZF_CTRL_R_OPTS='--sort --exact'
+export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /home/kitechin/program/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/fzf/key-bindings.zsh
