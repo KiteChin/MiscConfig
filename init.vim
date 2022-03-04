@@ -1,4 +1,6 @@
-let g:node_host_prog = '/usr/local/bin/neovim-node-host'
+"path for neovim dependence
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 set encoding=utf-8
 let mapleader=" "
 syntax on
@@ -13,9 +15,9 @@ set shiftwidth=4
 set nocompatible
 "enter directory where current file in
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-"split and enter terminal 
-map <F6> sl<C-w>w:let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR>
+"map <F6> :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR>
 
+map <F6> sl:terminal<CR>i
 
 set hlsearch
 exec "nohlsearch"
@@ -62,10 +64,10 @@ noremap <LEADER><S-l> <C-w>L
 noremap <LEADER>o <C-w>o
 noremap <LEADER>q <C-w>q
 
-noremap sj :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap sk :set splitbelow<CR>:split<CR>
-noremap sl :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-noremap sh :set splitright<CR>:vsplit<CR>
+nmap sj :set nosplitbelow<CR>:split<CR>:set splitbelow<CR><LEADER>j
+nmap sk :set splitbelow<CR>:split<CR><LEADER>k
+nmap sl :set nosplitright<CR>:vsplit<CR>:set splitright<CR><LEADER>l
+nmap sh :set splitright<CR>:vsplit<CR><LEADER>h
 noremap sv <C-w>v
 
 noremap <up> :res +5<CR>
@@ -142,7 +144,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 		Plug 'Yggdroot/indentLine'
 
-		Plug 'neoclide/coc.nvim', {'branch': 'release'}
+		"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 		"Plug 'ycm-core/YouCompleteMe'
 
 	"multi-select like vs code
@@ -254,95 +256,95 @@ call plug#end()
 " =====
 " ===== coc.nvim
 " =====
-set hidden
-set cmdheight=2
-set updatetime=100
-set shortmess+=c
-
-nmap <leader>e :CocCommand explorer<CR>
-
-let g:coc_global_extensions = [
-		\'coc-marketplace', 
-		\'coc-vimlsp',
-		\'coc-cmake',
-		\'coc-git',
-		\'coc-json',
-		\'coc-clangd',
-		\'coc-tsserver']
-			
-
-inoremap <silent><expr> <TAB>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-let col = col('.') - 1
-return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <c-o> coc#refresh()
-"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-"                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-" Use <LEADER>h to show documentation in preview window.
-nnoremap <silent> <LEADER>H :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-
-nmap <leader>rn <Plug>(coc-rename)
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-"" Remap keys for applying codeAction to the current buffer.
-"nmap <leader>ac  <Plug>(coc-codeaction)
-"" Apply AutoFix to problem on the current line.
-"nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-nnoremap <silent><nowait> <space>ce  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <space>cm  :<C-u>CocList marketplace<cr>
+"set hidden
+"set cmdheight=2
+"set updatetime=100
+"set shortmess+=c
+"
+"nmap <leader>e :CocCommand explorer<CR>
+"
+"let g:coc_global_extensions = [
+"		\'coc-marketplace', 
+"		\'coc-vimlsp',
+"		\'coc-cmake',
+"		\'coc-git',
+"		\'coc-json',
+"		\'coc-clangd',
+"		\'coc-tsserver']
+"			
+"
+"inoremap <silent><expr> <TAB>
+"		\ pumvisible() ? "\<C-n>" :
+"		\ <SID>check_back_space() ? "\<TAB>" :
+"		\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+"function! s:check_back_space() abort
+"let col = col('.') - 1
+"return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+"
+"inoremap <silent><expr> <c-o> coc#refresh()
+""inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+""                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"" Applying codeAction to the selected region.
+"" Example: `<leader>aap` for current paragraph
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
+"nmap <leader>a  <Plug>(coc-codeaction-selected)
+"" Use `[g` and `]g` to navigate diagnostics
+"nmap <silent> [g <Plug>(coc-diagnostic-prev)
+"nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"" GoTo code navigation.
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+"" Use <LEADER>h to show documentation in preview window.
+"nnoremap <silent> <LEADER>H :call <SID>show_documentation()<CR>
+"
+"function! s:show_documentation()
+"  if (index(['vim','help'], &filetype) >= 0)
+"    execute 'h '.expand('<cword>')
+"  elseif (coc#rpc#ready())
+"    call CocActionAsync('doHover')
+"  else
+"    execute '!' . &keywordprg . " " . expand('<cword>')
+"  endif
+"endfunction
+"
+"
+"nmap <leader>rn <Plug>(coc-rename)
+"" Formatting selected code.
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
+"
+"" Applying codeAction to the selected region.
+"" Example: `<leader>aap` for current paragraph
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
+"nmap <leader>a  <Plug>(coc-codeaction-selected)
+"
+""" Remap keys for applying codeAction to the current buffer.
+""nmap <leader>ac  <Plug>(coc-codeaction)
+""" Apply AutoFix to problem on the current line.
+""nmap <leader>qf  <Plug>(coc-fix-current)
+"
+"" Map function and class text objects
+"" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+"xmap if <Plug>(coc-funcobj-i)
+"omap if <Plug>(coc-funcobj-i)
+"xmap af <Plug>(coc-funcobj-a)
+"omap af <Plug>(coc-funcobj-a)
+"xmap ic <Plug>(coc-classobj-i)
+"omap ic <Plug>(coc-classobj-i)
+"xmap ac <Plug>(coc-classobj-a)
+"omap ac <Plug>(coc-classobj-a)
+"
+"" Use CTRL-S for selections ranges.
+"" Requires 'textDocument/selectionRange' support of language server.
+"nmap <silent> <C-s> <Plug>(coc-range-select)
+"xmap <silent> <C-s> <Plug>(coc-range-select)
+"nnoremap <silent><nowait> <space>ce  :<C-u>CocList extensions<cr>
+"nnoremap <silent><nowait> <space>cm  :<C-u>CocList marketplace<cr>
 
 " =====
 " ===== 
@@ -417,64 +419,3 @@ nnoremap <silent><nowait> <space>cm  :<C-u>CocList marketplace<cr>
 
 "wildfire config:
     let g:wildfire_objects = ["i'", 'i"', "i\*", "i>", "i`", "i)", "i]", "i}", "ip", "it"]
-
-"FZF config:
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" An action can be a reference to a function that processes selected lines
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - Popup window (center of the screen)
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-" - Popup window (center of the current window)
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true } }
-
-" - Popup window (anchored to the bottom of the current window)
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true, 'yoffset': 1.0 } }
-
-" - down / up / left / right
-let g:fzf_layout = { 'down': '40%' }
-
-" - Window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10new' }
-
-" Customize fzf colors to match your color scheme
-" - fzf#wrap translates this to a set of `--color` options
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
-let g:fzf_history_dir = '~/.local/share/fzf-history'

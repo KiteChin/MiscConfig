@@ -21,7 +21,7 @@ font:
     family: Iosevka
     style: Bold Italic
 
-  size: 13
+  size: 14
 # 背景不透明度
-background_opacity: 0.85
+#background_opacity: 0.85
 

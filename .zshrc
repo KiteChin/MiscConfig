@@ -143,15 +143,15 @@ alias vim="nvim"
 alias ra="ranger"
 alias s="screenfetch"
 alias cl="clear"
-#alias sudo="sudo -E"
+alias sudo="sudo -E"
 
 #My Environment
 export EDITOR=$(which nvim)
 export SYSTEMD_EDITOR=$(which nvim)
-export http_proxy='127.0.0.1:7890'
-export https_proxy='127.0.0.1:7890'
+export http_proxy='http://127.0.0.1:7890'
+export https_proxy='https://127.0.0.1:7890'
 export TERM=xterm-256color
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+#export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
 
 #FZF
@@ -163,4 +163,4 @@ export FZF_CTRL_R_OPTS='--sort --exact'
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /home/kitechin/program/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/fzf/key-bindings.zsh
+#source /usr/share/fzf/key-bindings.zsh
