@@ -40,7 +40,7 @@ exec alacritty
 
 
 # set wallpaper
-exec_always exec feh  --bg-fill ~/Pictures/background/Wallpaper-29.png
+exec_always exec feh  --bg-fill ~/Pictures/background/Wallpaper-18.png
 bindsym $mod+Shift+b exec feh  --randomize --bg-fill ~/Pictures/background
 
 # set screenshot keybind
@@ -101,10 +101,10 @@ bindsym $mod+l focus right
 
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left

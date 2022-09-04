@@ -9,10 +9,14 @@ export ZSH="/home/kitechin/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode date history vcs status newline dir_writable dir )
+#prompt Setting
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode history vcs status newline dir_writable dir )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs  )
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+#DIR Setting
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -95,8 +99,12 @@ plugins=(
 	ruby
 )
 
+#autosuggest
+
 source $ZSH/oh-my-zsh.sh
 
+
+bindkey '^l' autosuggest-execute
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -143,7 +151,7 @@ alias vim="nvim"
 alias ra="ranger"
 alias s="screenfetch"
 alias cl="clear"
-alias sudo="sudo -E"
+#alias sudo="sudo -E"
 
 #My Environment
 export EDITOR=$(which nvim)
@@ -164,3 +172,9 @@ export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /home/kitechin/program/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/fzf/key-bindings.zsh
+
+
+# setting for program
+export IDF_PATH=~/CodeItem/ESP8266_RTOS_SDK
+export PATH="$PATH:/home/kitechin/program/xtensa-lx106-elf/bin"
+
