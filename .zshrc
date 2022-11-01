@@ -8,12 +8,15 @@ export ZSH="/home/kitechin/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
+# themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
-#prompt Setting
+
+# prompt Setting
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode history vcs status newline dir_writable dir )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs  )
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-#DIR Setting
+# directory show setting
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
 
@@ -77,6 +80,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(
 	sudo
 	history
@@ -99,53 +103,16 @@ plugins=(
 	ruby
 )
 
-#autosuggest
-
+# autosuggest
 source $ZSH/oh-my-zsh.sh
 
-
+# completion and execute
 bindkey '^l' autosuggest-execute
-# User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-
-
-## Less Colors for Man Pages
-#export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
-#export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
-#export LESS_TERMCAP_me=$'\e[0m'           # end mode
-#export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
-#export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
-#export LESS_TERMCAP_ue=$'\e[0m'           # end underline
-#export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
-
-#swape caps and esc
+# swape caps and esc
 setxkbmap -option caps:swapescape
 
-#some alias
+# some alias
 alias ll="ls -al"
 alias vim="nvim"
 alias ra="ranger"
@@ -153,13 +120,13 @@ alias s="screenfetch"
 alias cl="clear"
 #alias sudo="sudo -E"
 
-#My Environment
+# My Environment
 export EDITOR=$(which nvim)
+# alter systemd_editor visodu to nvim
 export SYSTEMD_EDITOR=$(which nvim)
 export http_proxy='http://127.0.0.1:7890'
 export https_proxy='https://127.0.0.1:7890'
 export TERM=xterm-256color
-#export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
 
 #FZF
@@ -171,10 +138,4 @@ export FZF_CTRL_R_OPTS='--sort --exact'
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /home/kitechin/program/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/share/fzf/key-bindings.zsh
-
-
-# setting for program
-export IDF_PATH=~/CodeItem/ESP8266_RTOS_SDK
-export PATH="$PATH:/home/kitechin/program/xtensa-lx106-elf/bin"
 

@@ -74,7 +74,14 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+t exec alacritty -e ranger
 
 # open browser
-bindsym $mod+g exec google-chrome-stable --proxy-server="http://127.0.0.1:7890"
+# bindsym $mod+g exec google-chrome-stable --proxy-server="http://127.0.0.1:7890"
+# bindsym $mod+Shift+g exec google-chrome-stable --no-proxy-server
+
+bindsym $mod+g exec microsoft-edge-stable --proxy-server="http://127.0.0.1:7890"
+bindsym $mod+Shift+g exec microsoft-edge-stable --no-proxy-server
+
+bindsym $mod+Shift+f exec bytedance-feishu-stable
+
 
 # open music player
 #bindsym $mod+m exec 
