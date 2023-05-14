@@ -10,7 +10,7 @@ export ZSH="/home/kitechin/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # prompt Setting
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode history vcs status newline dir_writable dir )
@@ -94,6 +94,7 @@ plugins=(
 	vi-mode
 	colored-man-pages
 	zsh-autosuggestions
+    zsh-syntax-highlighting
 
 	bundler
 	dotenv
@@ -134,14 +135,15 @@ export http_proxy='http://127.0.0.1:7890'
 export https_proxy='https://127.0.0.1:7890'
 export TERM=xterm-256color
 export PATH="$PATH:$GEM_HOME/bin"
+export PATH="$PATH:$HOME/Apps"
 
 #FZF
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_COMPLETION_TRIGGER='**'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border '
 export FZF_DEFAULT_COMMAND="find ."
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_CTRL_R_OPTS='--sort --exact'
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /home/kitechin/program/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

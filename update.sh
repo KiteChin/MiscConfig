@@ -1,10 +1,12 @@
 #! /bin/bash
 
-cp ~/.gitconfig ~/MiscConfig/
-cp ~/.zsh_history ~/MiscConfig/
-cp ~/.zshrc ~/MiscConfig/
-cp ~/.config/alacritty/alacritty.yml ~/MiscConfig/
-cp ~/.config/nvim/coc-settings.json ~/MiscConfig/
-cp ~/.config/i3/config ~/MiscConfig/
-cp ~/.config/ranger/rc.conf ~/MiscConfig/
-cp ~/.config/ranger/rifle.conf ~/MiscConfig/
+cp ~/.gitconfig ./
+cp ~/.zsh_history ./
+cp ~/.zshrc ./
+cp ~/.config/ranger/rc.conf ./
+cp ~/.config/ranger/rifle.conf ./
+
+#cp ~/.config/alacritty/alacritty.yml ./
+#cp ~/.config/nvim/coc-settings.json ./
+#cp ~/.config/i3/config ./
+
