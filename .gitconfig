@@ -6,11 +6,12 @@
 	email = kitechin@qq.com
 	name = kitechin
 [alias]
-	co = commit
+	cm = commit
 	br = branch
-	re = reset
-	rv = revert
+	res = reset --soft
+	reh = reset --hard
 	st = status
 	sw = switch
 	ch = checkout
+    cp = cherry-pick
 

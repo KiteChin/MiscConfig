@@ -1,0 +1,29 @@
+[global_config]
+  handle_size = -3
+  inactive_color_offset = 1.0
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_shape = ibeam
+    font = Ubuntu Mono 14
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scroll_background = False
+    scrollback_lines = 3000
+    palette = "#292424:#ed333b:#f9f06b:#cdcd00:#33d17a:#cd00cd:#00cdcd:#ffffff:#ff7800:#868e09:#00ff00:#ff7800:#4682b4:#33d17a:#cdcd00:#77767b"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      size = 1000, 600
+      type = Window
+[plugins]

@@ -11,12 +11,9 @@ export ZSH="/home/kitechin/.oh-my-zsh"
 
 # themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# prompt Setting
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode history vcs status newline dir_writable dir )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs  )
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-# directory show setting
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
 
@@ -87,7 +84,6 @@ plugins=(
 	git
 	z
 	safe-paste
-	git-open
 	extract
 	rand-quote
 	gitignore
@@ -95,13 +91,6 @@ plugins=(
 	colored-man-pages
 	zsh-autosuggestions
     zsh-syntax-highlighting
-
-	bundler
-	dotenv
-	macos
-	rake
-	rbenv
-	ruby
 )
 
 # autosuggest
@@ -137,9 +126,12 @@ export TERM=xterm-256color
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/Apps"
 
+#fcitx5
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+
 #FZF
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_COMPLETION_TRIGGER='**'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border '
 export FZF_DEFAULT_COMMAND="find ."
@@ -147,3 +139,5 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 export FZF_CTRL_R_OPTS='--sort --exact'
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 
+# 双系统时区
+# timedatectl set-local-rtc 1 --adjust-system-clock

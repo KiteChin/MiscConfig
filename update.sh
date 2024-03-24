@@ -1,12 +1,22 @@
 #! /bin/bash
 
-cp ~/.gitconfig ./
-cp ~/.zsh_history ./
-cp ~/.zshrc ./
-cp ~/.config/ranger/rc.conf ./
-cp ~/.config/ranger/rifle.conf ./
+installEnable=$1
 
-#cp ~/.config/alacritty/alacritty.yml ./
-#cp ~/.config/nvim/coc-settings.json ./
-#cp ~/.config/i3/config ./
-
+if [ "$installEnable" -eq 1 ]
+then
+    cp ./.gitconfig ~/
+    cp ./.zsh_history ~/
+    cp ./.zshrc ~/
+    mkdir -p ~/.config/ranger/
+    cp ./rc.conf ~/.config/ranger/
+    cp ./rifle.conf ~/.config/ranger/
+    mkdir -p ~/.config/terminator
+    cp ./config ~/.config/terminator/
+else
+    cp ~/.gitconfig ./
+    cp ~/.zsh_history ./
+    cp ~/.zshrc ./
+    cp ~/.config/ranger/rc.conf ./
+    cp ~/.config/ranger/rifle.conf ./
+    cp ~/.config/terminator/config ./
+fi
