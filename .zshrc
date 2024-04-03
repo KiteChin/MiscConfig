@@ -109,22 +109,17 @@ alias ra="ranger"
 alias s="screenfetch"
 alias cl="clear"
 #alias sudo="sudo -E"
-
-# connect Kite's Airpods Pro
-alias headphones="until bluetoothctl connect A4:C6:F0:C0:F7:35; do  echo ...  ; sleep 1; done"
-alias myip="ip addr show | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
-alias schoolwificon="myip=$(ip addr show | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1');curl \"http://192.168.200.2:801/eportal/?c=Portal\&a=login\&callback=dr1003\&login_method=1\&user_account=%2C0%2C1665225%40telecom\&user_password=Qin961574793\&wlan_user_ip=$myip\&wlan_user_ipv6=\&wlan_user_mac=000000000000\&wlan_ac_ip=\&wlan_ac_name=\""
-
+alias setproxy="export http_proxy='http://127.0.0.1:7890';export https_proxy='https://127.0.0.1:7890';echo set proxy success"
+alias unsetproxy="unset http_proxy;unset https_proxy;echo 'unset proxy success'"
 
 # My Environment
 export EDITOR=$(which nvim)
 # alter systemd_editor visodu to nvim
 export SYSTEMD_EDITOR=$(which nvim)
-export http_proxy='http://127.0.0.1:7890'
-export https_proxy='https://127.0.0.1:7890'
+# export http_proxy='http://127.0.0.1:7890'
+# export https_proxy='https://127.0.0.1:7890'
 export TERM=xterm-256color
 export PATH="$PATH:$GEM_HOME/bin"
-export PATH="$PATH:$HOME/Apps"
 
 #fcitx5
 export XMODIFIERS=@im=fcitx
