@@ -1,7 +1,7 @@
 [https]
-	proxy = https://127.0.0.1:7890
+	proxy = socks5://127.0.0.1:7890
 [http]
-	proxy = http://127.0.0.1:7890
+	proxy = socks5://127.0.0.1:7890
 [user]
 	email = kitechin@qq.com
 	name = kitechin
@@ -12,6 +12,6 @@
 	reh = reset --hard
 	st = status
 	sw = switch
-	ch = checkout
+	co = checkout
     cp = cherry-pick
 
