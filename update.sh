@@ -7,19 +7,23 @@ then
     cp ./.gitconfig ~/
     cp ./.zsh_history ~/
     cp ./.zshrc ~/
-    mkdir -p ~/.config/ranger/
-    cp ./rc.conf ~/.config/ranger/
-    cp ./rifle.conf ~/.config/ranger/
-    mkdir -p ~/.config/terminator
-    cp ./config ~/.config/terminator/
+    mkdir -p ~/.config/yabai/
+    cp -r ./yabai ~/.config/
+    mkdir -p ~/.config/skhd/
+    cp -r ./skhd ~/.config/
+    mkdir -p ~/.config/yazi/
+    cp -r ./yazi ~/.config/
+    mkdir -p ~/.config/kitty/
+    cp -r ./kitty ~/.config/
     echo "install success"
 else
     cp ~/.gitconfig ./
     cp ~/.zsh_history ./
     cp ~/.zshrc ./
-    cp ~/.config/ranger/rc.conf ./
-    cp ~/.config/ranger/rifle.conf ./
-    cp ~/.config/terminator/config ./
+    cp -r ~/.config/yabai ./
+    cp -r ~/.config/skhd ./
+    cp -r ~/.config/yazi ./
+    cp -r ~/.config/kitty ./ 
     echo "update success"
 fi
 

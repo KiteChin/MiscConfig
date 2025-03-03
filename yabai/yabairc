@@ -1,0 +1,33 @@
+yabai -m signal --add label="flash_focus" event="window_focused" action="yabai -m window \$YABAI_WINDOW_ID --opacity 0.1 && sleep $(yabai -m config window_opacity_duration) && yabai -m window \$YABAI_WINDOW_ID --opacity 0.0"
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m rule --add app="^System Preferences$" manage=off
+#yabai -m rule --add app="^哔哩哔哩$" manage=off
+
+yabai -m config layout bsp
+yabai -m config window_placement second_child
+yabai -m config window_shadow on
+yabai -m config active_window_opacity 0.10
+yabai -m config normal_window_opacity 0.10
+# Padding
+yabai -m config top_padding 10
+yabai -m config bottom_padding 10
+yabai -m config right_padding 10
+yabai -m config left_padding 10
+yabai -m config window_gap 10
+# mouse settings
+yabai -m config mouse_follows_focus on
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+# Disable specific apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Karabiner-Element$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^DBeaver$" manage=off
+yabai -m rule --add app="^Discord$" manage=off
